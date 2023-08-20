@@ -12,6 +12,11 @@ export default {
       .then((response) => {
         this.hello = response;
       });
+  },
+  methods: {
+    prescan() {
+      console.log("chargement...")
+    }
   }
 };
 </script>
@@ -22,7 +27,7 @@ export default {
     <div class="wrapper">
       <div>Do you want to do a prescan ?</div>
       <div>{{ hello }}</div>
-      <button> Charger </button>
+      <button @click="prescan"> Charger </button>
     </div>
   </header>
 
