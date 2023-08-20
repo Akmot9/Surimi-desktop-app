@@ -21,7 +21,9 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn list_files_execution(name: &str) -> String {
-  println!("listing files");
-  format!("okok, {}!", name)
+  println!("Listing files: Please wait...");
+  let folder_path = "/";
+  let nbs_of_file = list_files(&folder_path);
+  format!("{}", nbs_of_file)
 }
 

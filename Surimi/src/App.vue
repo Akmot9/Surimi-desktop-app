@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       hello: '',
-      uwu: ''
+      nbs_of_files: ''
     };
   },
   created() {
@@ -22,7 +22,7 @@ export default {
       invoke('list_files_execution', { name: 'World' })
       .then((response) => {
         console.log(response)
-        this.uwu = response;
+        this.nbs_of_files = response;
       });
       console.log("methodes: ")
       
@@ -44,9 +44,9 @@ export default {
         <p class="hint">Perform a quick scan of your computer's files to generate integrity reports.</p>
       </div>
 
-      <div class="result" v-if="uwu">
+      <div class="result" v-if="nbs_of_files">
         <h2 class="result-title">Prescan Result</h2>
-        <pre class="result-text">{{ uwu }}</pre>
+        <pre class="result-text">{{ nbs_of_files }}</pre>
       </div>
     </main>
   </div>
