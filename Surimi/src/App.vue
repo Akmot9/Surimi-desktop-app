@@ -1,6 +1,14 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { invoke } from '@tauri-apps/api'
+
+// à présent, nous pouvons appeler notre commande !
+// Clique droite sur l'arrière-plan de l'application et ouvre les outils de développement.
+// Vous devriez apercevoir "Hello, World !" dans la console !
+invoke('greet', { name: 'World' })
+  // `invoke` renvoie une promesse (Promise)
+  .then((response) => console.log(response))
 </script>
 
 <template>
