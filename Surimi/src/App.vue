@@ -4,18 +4,28 @@ import { invoke } from '@tauri-apps/api';
 export default {
   data() {
     return {
-      hello: ''
+      hello: '',
+      uwu: ''
     };
   },
   created() {
     invoke('greet', { name: 'World' })
       .then((response) => {
         this.hello = response;
+        console.log(response)
       });
+      console.log("created: ")
   },
   methods: {
     prescan() {
       console.log("chargement...")
+      invoke('okok', { name: 'World' })
+      .then((response) => {
+        console.log(response)
+        this.uwu = response;
+      });
+      console.log("methodes: ")
+      
     }
   }
 };
