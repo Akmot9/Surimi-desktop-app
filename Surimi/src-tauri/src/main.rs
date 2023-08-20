@@ -6,7 +6,7 @@ mod file_integrity ;
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![greet, okok])
+    .invoke_handler(tauri::generate_handler![greet, list_files_execution])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 
@@ -20,8 +20,8 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-fn okok(name: &str) -> String {
-  println!("okok");
+fn list_files_execution(name: &str) -> String {
+  println!("listing files");
   format!("okok, {}!", name)
 }
 
