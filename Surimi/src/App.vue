@@ -1,17 +1,28 @@
-<script setup>
-import { invoke } from '@tauri-apps/api'
+<script>
+import { invoke } from '@tauri-apps/api';
 
-invoke('greet', { name: 'World' })
-  // `invoke` renvoie une promesse (Promise)
-  .then((response) => console.log(response))
+export default {
+  data() {
+    return {
+      hello: ''
+    };
+  },
+  created() {
+    invoke('greet', { name: 'World' })
+      .then((response) => {
+        this.hello = response;
+      });
+  }
+};
 </script>
 
 <template>
   <header>
     
     <div class="wrapper">
-      <div>hello</div>
-      <div>{hello}</div>
+      <div>Do you want to do a prescan ?</div>
+      <div>{{ hello }}</div>
+      <button> Charger </button>
     </div>
   </header>
 
