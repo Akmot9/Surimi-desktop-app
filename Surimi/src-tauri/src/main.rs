@@ -27,3 +27,11 @@ fn list_files_execution(name: &str) -> String {
   format!("{}", nbs_of_file)
 }
 
+// #[tauri::command]
+// fn hash_files_execution(name: &str) -> String {
+//   println!("Listing files: Please wait...");
+//   hash_file_list();
+//   write_json_file();
+  
+// }
+

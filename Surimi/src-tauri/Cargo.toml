@@ -22,6 +22,7 @@ my_logger = "0.2.1"
 walkdir ="2.3.2"
 md-5 = "0.10.5"
 chrono = "0.4.26"
+tempfile = "3.8.0"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
