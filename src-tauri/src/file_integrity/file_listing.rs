@@ -1,7 +1,7 @@
 use walkdir::WalkDir;
 use tokio::fs::{self, File};
 use tokio::io::{AsyncWriteExt, BufWriter};
-use my_logger::{log, logw};
+use my_logger::{log,logd};
 
 /// Recursively list files in a directory and write their paths to a text file.
 ///
@@ -35,8 +35,9 @@ use my_logger::{log, logw};
 ///
 /// This function logs any errors that occur during the listing and writing process.
 
-pub async fn list_files(folder_to_list: &str) -> Result<i32, Box<dyn std::error::Error>> {
-    logw!("STATUS: Listing files: Please wait...");
+pub async fn list_files(folder_to_list: Option<&str>) -> Result<i32, Box<dyn std::error::Error>> {
+    let folder_to_list = folder_to_list.unwrap_or("/");
+    logd!("STATUS: Listing files: Please wait...");
     let mut count = 0;
     let mut filenames = Vec::new();
 
@@ -65,6 +66,6 @@ pub async fn list_files(folder_to_list: &str) -> Result<i32, Box<dyn std::error:
         writer.write_all(format!("{}\n", filename).as_bytes()).await?;
     }
     
-    logw!("STATUS: List of files: Success!");
+    logd!("STATUS: List of files: Success!");
     Ok(count)
 }

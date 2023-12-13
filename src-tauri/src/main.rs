@@ -5,7 +5,7 @@ mod file_integrity ;
 
 use crate::file_integrity::list_files; 
 
-const ROOT: &str = "/";
+
 
 fn main() {
     tauri::Builder::default()
@@ -16,5 +16,5 @@ fn main() {
 
 #[tauri::command]
 async fn get_number_of_files()  {
-    list_files(&ROOT).await.map_err(|e| e.to_string());
+    list_files(None).await.map_err(|e| e.to_string());
 }
